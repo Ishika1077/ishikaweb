@@ -1,35 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Disney World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" >
-  <style>
-   
-    body { font-family: 'Inter', sans-serif; color: #0f172a; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+<style>
 
-  
-    header {
-      position: sticky;
-      top: 0;
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      z-index: 50;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-    }
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+}
+
+body {
+    line-height: 1.5;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color:  #007bff;
+    border: 1px solid  #007bff;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #dee2e6;
+}
+
+
+/* --- Navbar --- */
+.navbar {
+    position: sticky;
+    top: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+
     .logo {
       font-weight: 700;
       font-size: 20px;
@@ -49,42 +103,52 @@
     nav :hover {
       color: #0b66ff;
     }
-    
-    .hero {
-      background:black;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-    }
-    .hero h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-    .hero .buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero .btn {
-      background: #0b66ff;
-      padding: 10px 18px;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 700;
-    }
-    .hero .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-    }
 
 
-    .about {
+/* --- Hero Section --- */
+.hero {
+    background: url(Picture/castle.jpg) center center/cover no-repeat; /* Placeholder background image path */
+    height: 60vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark overlay to make text readable */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero-content {
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+ .about {
       display: grid;
       grid-template-columns: 50% 50%;
       gap: 30px;
@@ -119,46 +183,434 @@
       object-fit: cover;
     }
 
-   
 
+/* --- Featured Offers --- */
+.offers-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.offer-card {
+    flex: 1;
+    max-width: 350px;
+    text-align: left;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.offer-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for image consistency */
+    object-fit: cover;
+    display: block;
+}
+
+.offer-card h3 {
+    padding: 15px;
+    font-size: 20px;
+    color:  #007bff;
+}
+
+.offer-card p {
+    padding: 0 15px 15px;
+    font-size: 8px;
+    color: #6c757d;
+}
+
+
+/* --- Explore the Parks --- */
+.parks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    gap: 20px;
+}
+
+.park-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 350px;
+    display: flex;
+    flex-direction: column-reverse; /* Put content at the bottom */
+    text-align: left;
+}
+
+.park-card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.park-card:hover img {
+    transform: scale(1.05);
+}
+
+.park-info {
+    z-index: 2;
+    padding: 15px;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); /* Gradient overlay at the bottom */
+}
+
+.park-info h3 {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.park-info p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Plan Your Visit --- */
+.plan-visit {
+    padding: 40px 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.plan-visit p {
+    margin-bottom: 20px;
+}
+
+.visit-actions button {
+    margin: 0 10px;
+    font-size: 16px;
+    padding: 12px 25px;
+}
+
+
+
+
+
+
+/* --- Page Header --- */
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header p {
+    font-size: 22px;
+    color:  #777;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Find Your Perfect Stay Section --- */
+.find-stay {
+    margin-bottom: 50px;
+}
+
+.find-stay h3 {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.search-form-card {
+    background-color:#fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid#e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 15px;
+    color:  #777;
+    font-size: 22px;
+}
+
+.input-with-icon input,
+.select-wrapper select {
+    width: 100%;
+    padding: 12px 15px;
+    padding-left: 45px; /* Adjust for icon */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #333;
+    appearance: none; /* Remove default arrow for select */
+    background-color: #f2f2f2; /* Light gray background for inputs */
+}
+
+.input-with-icon input::placeholder {
+    color:  #777;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+.select-wrapper select {
+    padding-left: 15px; /* No left icon, so reset padding */
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid  #777;
+    pointer-events: none;
+}
+
+.btn-search {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-search:hover {
+    background-color: #0056b3;
+}
+
+/* --- Featured Resorts Section --- */
+.featured-resorts h2 {
+    text-align: center;
+}
+
+.resort-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.resort-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.resort-card img {
+    width: 250px; 
+    height: 180px; 
+    object-fit: cover;
+    flex-shrink: 0; }
+
+.resort-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resort-type {
+    font-size: 12px;
+    color:  #777;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.resort-details h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.resort-description {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btn-view-details {
+    align-self: flex-start; /* Align button to the start */
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-view-details:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    font-size: 8px;
+    color: #6c757d;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #6c757d;
+    margin: 0 5px;
+}
+
+.footer-links a:hover {
+    color:  #007bff;
+}
+
+.footer-links span {
+    color: #ddd;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+
+/* --- Basic Responsiveness (Mobile Adaptation) --- */
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+    }
+    .nav-links {
+        display: none; 
+        width: 100%;
+        order: 3;
+        padding: 10px 0;
+    }
+    
+
+    .about img{
+        display: none;
+    }
+    .offers-grid, .parks-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .offer-card {
+        max-width: 100%;
+    }
+
+    .park-card {
+        height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-with-icon input,
+    .select-wrapper select {
+        padding-left: 15px; /* Remove extra padding if icon is not visible or less prominent */
+    }
+    .input-with-icon .icon {
+        left: 10px;
+        font-size: 1rem;
+    }
+    .btn-search {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+
+
+</style>
 
     
-  </style>
-</head>
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">Disney World</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Parks & Tickets</a></li>
-          <li><a href="#">Hotels & Resorts</a></li>
-         
-          <li><a href="#">Events & Celebrations</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-      </div>
-  </header>
 
-  <section class="hero">
-    
-    <h1>Welcome to the Most Magical Place on Earth!</h1>
-    <p>Plan your unforgettable Disney World vacation today.</p>
-    <div class="buttons">
-      <a href="#" class="btn">Plan Your Visit</a>
-      <a href="#" class="btn btn-outline">Buy Tickets</a>
-    </div>
-  </section>
+    <header class="navbar">
+        <div class="logo">Disney World</div>
+        <nav>
 
-  
-  <section class="container about">
+        <ul class="nav-links">
+            <li> <a href="#about">About</a></li>
+             <li> <a href="#offer">Offers</a></li>
+            <li><a href="#parks">Parks & Tickets</a></li>
+            <li><a href="#resort">Hotel & Resorts</a></li>
+            <li><a href="#">Event & Celebration</a></li>
+            <li><a href="#">Contact</a></li>
+            </ul>
+           
+        </nav>
+        
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Magic</h1>
+            <p>Plan your unforgettable adventure at Magic Kingdom, where dreams come to life and new stories are made.</p>
+            <button class="btn btn-primary">
+               <a href="#parks">Explore Parks</a>
+
+            </button>
+        </div>
+    </section>
+
+<section class="container about">
     <div class="about-text">
+        <div id="about">
       <h2>About Disney World</h2>
       <h3>A World of Magic Since 1971</h3>
       <p>Disney World Resort in Orlando, Florida, is the ultimate vacation destination. Featuring four theme parks, two water parks, world-class hotels, and endless entertainment, it’s where stories come alive.</p>
       <a href="#" class="btn">Learn More About Our Parks</a>
+    </div>
     </div>
     <div>
       <img src="Picture/disney.jpg" alt="EPCOT Sphere or montage of parks">
@@ -168,6 +620,199 @@
 
 
 
+    <section class="featured-offers container">
+        <div id="offer">
+        <h2>Featured Offers</h2></div>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <img src="Picture/firework.jpg" alt="Fireworks over Magic Kingdom castle">
+                <h3>Save on Park Hopper Tickets</h3>
+                <p>Secure more magic for your dollar and enjoy your Park Hopper ticket offer.</p>
+            </div>
+            <div class="offer-card">
+                <img src="Picture/park atttraction.jpg" alt="People riding a park attraction">
+                <h3>Exclusive Resort Discounts</h3>
+                <p>Experience the ultimate resort stay this season.</p>
+            </div>
+            <div class="offer-card">
+                <img src="Picture/couple.jpg" alt="Couple near Magic Kingdom castle">
+                <h3>Special Dining Packages</h3>
+                <p>Enjoy incredible gastronomic experiences with our special packages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="explore-parks container">
+        <div id="parks">
+        <h2>Explore the Parks</h2></div>
+        <div class="parks-grid">
+            <div class="park-card">
+                <img src="Picture/entrance.jpg" alt="Magic Kingdom entrance">
+                <div class="park-info">
+                    <h3>Magic Kingdom</h3>
+                    <p>Step into a world of fantasy and fairy tales.</p>
+                </div>
+                
+            </div>
+            <div class="park-card">
+                <img src="Picture/spaceship.jpg" alt="Epcot Spaceship Earth">
+                <div class="park-info">
+                    <h3>Epcot</h3>
+                    <p>Discover the wonders of the world and human innovation.</p>
+                </div>
+            </div>
+            <div class="park-card">
+                <img src="Picture/tree life.jpg" alt="Tree of Life at Animal Kingdom">
+                <div class="park-info">
+                    <h3>Animal Kingdom</h3>
+                    <p>Embark on a wild adventure with exotic wildlife.</p>
+                </div>
+            </div>
+            <div class="park-card">
+                <img src="Picture/hollywood.jpg" alt="Hollywood Studios entrance">
+                <div class="park-info">
+                    <h3>Hollywood Studios</h3>
+                    <p>Experience the glamour and action of movie magic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="plan-visit container">
+        <h2>Plan Your Visit</h2>
+        <p>Ready to make some magic? Get your tickets and check availability now.</p>
+        <div class="visit-actions">
+            <button class="btn btn-primary">Check Park Availability</button>
+            <button class="btn btn-secondary">Purchase Tickets</button>
+        </div>
+    </section>
+
+   
+       
+
+    <main class="container">
+        <section class="page-header">
+            <div id="resort">
+            <h1>Resort & Hotels</h1></div>
+            <p>Explore our themed hotels with unique amenities and magical experiences.</p>
+        </section>
+
+        <section class="find-stay">
+            <h3>Find Your Perfect Stay</h3>
+            <div class="search-form-card">
+                <div class="form-group">
+                    <label for="resortSearch">Search Resorts</label>
+                    <div class="input-with-icon">
+                        <span class="icon">🔍</span>
+                        <input type="text" id="resortSearch" placeholder="e.g. Grand Floridian">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-in</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="checkIn" placeholder="mm/dd/yyyy">
+                            <span class="icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut">Check-out</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="checkOut" placeholder="mm/dd/yyyy">
+                            <span class="icon">📅</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="adults">Adults</label>
+                        <div class="select-wrapper">
+                            <select id="adults">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Children</label>
+                        <div class="select-wrapper">
+                            <select id="children">
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-search">Search Availability</button>
+            </div>
+        </section>
+
+        <section class="featured-resorts">
+            <h2>Featured Resorts</h2>
+            <div class="resort-list">
+                <div class="resort-card">
+                    <img src="Picture/spa.jpg" alt="Grand Floridian Resort & Spa">
+                    <div class="resort-details">
+                        <p class="resort-type">DELUXE RESORT</p>
+                        <h3>Grand Floridian Resort & Spa</h3>
+                        <p class="resort-description">Experience Victorian elegance with modern amenities and stunning views of the Magic Kingdom.</p>
+                        <button class="btn-view-details">View Details</button>
+                    </div>
+                </div>
+
+                <div class="resort-card">
+                    <img src="Picture/star movie.jpg" alt="All-Star Movies Resort">
+                    <div class="resort-details">
+                        <p class="resort-type">VALUE RESORT</p>
+                        <h3>All-Star Movies Resort</h3>
+                        <p class="resort-description">Enjoy a fun, movie-themed stay with larger-than-life characters and affordable accommodations.</p>
+                        <button class="btn-view-details">View Details</button>
+                    </div>
+                </div>
+
+                <div class="resort-card">
+                    <img src="Picture/coronado.jpg" alt="Coronado Springs Resort">
+                    <div class="resort-details">
+                        <p class="resort-type">MODERATE RESORT</p>
+                        <h3>Coronado Springs Resort</h3>
+                        <p class="resort-description">Immerse yourself in the vibrant culture of Mexico and the American Southwest with beautiful lakeside views.</p>
+                        <button class="btn-view-details">View Details</button>
+                    </div>
+                </div>
+
+                <div class="resort-card">
+                    <img src="Picture/bay lake.jpg" alt="Bay Lake Tower at Contemporary Resort">
+                    <div class="resort-details">
+                        <p class="resort-type">DELUXE VILLA RESORT</p>
+                        <h3>Bay Lake Tower at Contemporary Resort</h3>
+                        <p class="resort-description">Stay in a modern tower with direct monorail access and breathtaking park views.</p>
+                        <button class="btn-view-details">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+ <!--<footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <span>|</span>
+            <a href="#">Contact Us</a>
+            <span>|</span>
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+        </div>
+
+
+        
+    </footer>-->
+
 </body>
 </html>
-
+</body>
+</html>
